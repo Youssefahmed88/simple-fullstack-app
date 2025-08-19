@@ -99,7 +99,7 @@ The backend is built with **FastAPI** and serves as an API for the integrated fr
 ```
 project/
 │
-├── react-frontend/             # Integrated frontend
+├── react-frontend/             # Integrated frontend with Backend(FastAPI)
 │   ├── src/
 │   │   ├── components/        # UserList, UserItem, UserDetails, AddUserForm
 │   │   └── context/           # UserContext

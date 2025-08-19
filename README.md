@@ -103,6 +103,7 @@ project/
 │   ├── src/
 │   │   ├── components/        # UserList, UserItem, UserDetails, AddUserForm
 │   │   └── context/           # UserContext
+│   │   └── App.jsx
 │   └── package.json
 │
 ├── public-api-frontend/       # Public API frontend

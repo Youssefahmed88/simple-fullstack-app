@@ -6,17 +6,17 @@ function UserList({ loading, setLoading, setError }) {
   const { users, setUsers } = useContext(UserContext);
 
   useEffect(() => {
-    fetch("https://jsonplaceholder.typicode.com/users")
-      .then((res) => res.json())
-      .then((data) => {
+    fetch("http://127.0.0.1:8000/users")
+        .then((res) => res.json())
+        .then((data) => {
         setUsers(data);
         setLoading(false);
-      })
-      .catch((err) => {
+        })
+        .catch((err) => {
         setError("Failed to fetch users");
         setLoading(false);
-      });
-  }, [setUsers, setLoading, setError]);
+        });
+    }, [setUsers, setLoading, setError]);
 
   if (loading) return <p>Loading users...</p>;
   if (!users.length) return <p>No users found</p>;

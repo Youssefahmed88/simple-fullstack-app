@@ -1,22 +1,32 @@
 # Users Dashboard Fullstack App
 
-This is a **Fullstack CRUD application** with a **React frontend** and a **FastAPI backend**.
-Users can **view, add, update, and delete** users. All operations are handled by the FastAPI backend.
+This repository contains **two frontend implementations** along with a **FastAPI backend**:
+
+1. **Integrated Frontend** → React frontend fully integrated with the FastAPI backend.
+2. **Public API Frontend** → React frontend that fetches data directly from a public API without using the backend.
+
+Users can **view, add, update, and delete** users in the integrated version. The public API frontend only fetches and displays user data.
 
 ---
 
 ## **Frontend**
 
-The frontend is built with **React** and **Context API** for state management.
+The frontends are built with **React** and **Context API** for state management (for the integrated version).
 
-### **Features**
+### **Integrated Frontend Features**
 
-* Display a list of users from the backend
+* Display a list of users from the FastAPI backend
 * Add new users
 * Update existing users
 * Delete users
 * State management with `UserContext`
 * API integration using `fetch`
+
+### **Public API Frontend Features**
+
+* Fetches and displays users from a public API
+* No add/update/delete functionality
+* No global state management (optional usage of local state)
 
 ### **Getting Started (React)**
 
@@ -48,7 +58,7 @@ The frontend is built with **React** and **Context API** for state management.
 
 ## **Backend**
 
-The backend is built with **FastAPI** and serves as an API for the frontend.
+The backend is built with **FastAPI** and serves as an API for the integrated frontend.
 
 ### **Features**
 
@@ -89,20 +99,23 @@ The backend is built with **FastAPI** and serves as an API for the frontend.
 ```
 project/
 │
-├── react-frontend/
+├── react-frontend/             # Integrated frontend
 │   ├── src/
-│   │   ├── components/     # UserList, UserItem, UserDetails, AddUserForm
-│   │   └── context/        # UserContext
+│   │   ├── components/        # UserList, UserItem, UserDetails, AddUserForm
+│   │   └── context/           # UserContext
 │   └── package.json
 │
+├── public-api-frontend/       # Public API frontend
+│   └── src/
+│
 └── fastapi-backend/
-    ├── main.py             # FastAPI app with all routes
+    ├── main.py                # FastAPI app with all routes
     └── requirements.txt
 ```
 
 ---
 
-## **Frontend & Backend Integration**
+## **Frontend & Backend Integration (Integrated Version)**
 
 1. React frontend sends HTTP requests (`fetch`) to FastAPI backend.
 2. Backend handles CRUD operations in memory and responds with JSON.
@@ -111,7 +124,7 @@ project/
 
 ---
 
-## **Component Hierarchy & Workflow**
+## **Component Hierarchy & Workflow (Integrated Frontend)**
 
 ### **1️⃣ Component Hierarchy**
 
@@ -168,6 +181,8 @@ project/
 
 ## **Notes**
 
+* Integrated frontend requires FastAPI backend to function fully.
+* Public API frontend works independently and only reads data from a public API.
 * Backend uses an **in-memory database**, so all changes are lost on restart.
 * To make it persistent, connect FastAPI to **SQLite, PostgreSQL, or MongoDB**.
-* The frontend uses **Context API** to share state globally and **fetch** for API calls.
+* The integrated frontend uses **Context API** to share state globally and **fetch** for API calls.
